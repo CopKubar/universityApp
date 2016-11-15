@@ -1,0 +1,41 @@
+apply plugin: 'war'
+
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories{
+    mavenCentral()
+}
+
+
+
+dependencies{
+    compile 'org.springframework:spring-core:4.0.6.RELEASE'
+    compile 'org.springframework:spring-context:4.0.6.RELEASE'
+    compile 'org.springframework:spring-tx:4.0.6.RELEASE'
+    compile 'org.springframework:spring-orm:4.0.6.RELEASE'
+    compile 'org.springframework:spring-web:4.0.6.RELEASE'
+    compile 'org.springframework:spring-test:4.0.6.RELEASE'
+
+    compile 'org.hibernate:hibernate-core:4.3.6.Final'
+
+    compile 'mysql:mysql-connector-java:5.1.31'
+
+    compile 'jstl:jstl:1.2'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'org.testng:testng:6.9.10'
+    compile 'org.apache.maven.surefire:surefire-testng:2.14.1'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+
+
+}
+
+
+
+test{
+    useTestNG()
+}
+
+war{
+    baseName = 'app'
+}
