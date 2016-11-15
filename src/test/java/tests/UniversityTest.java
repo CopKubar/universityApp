@@ -21,7 +21,7 @@ import static org.testng.Assert.assertTrue;
 
 @ContextConfiguration(classes = {spring.configuration.AppConfig.class})
 @Transactional
-public class StudentTest extends AbstractTransactionalTestNGSpringContextTests{
+public class UniversityTest extends AbstractTransactionalTestNGSpringContextTests{
 
     @Autowired
     @Qualifier("studentService")
