@@ -1,6 +1,6 @@
 package tests;
 
-import accessoryClasses.CheckInput;
+import assistant.CheckInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -255,6 +255,7 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         assertTrue(rating.getAttend().getId()==rating1.getAttend().getId());
     }
 
+
     //CheckInput tests
     @Test
     public void testCheckStudentName(){
@@ -277,16 +278,13 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         assertTrue(CheckInput.checkStudentDate("2016"));
         assertFalse(CheckInput.checkStudentDate("AAA"));
         assertFalse(CheckInput.checkStudentDate("1969"));
-        assertFalse(CheckInput.checkStudentDate("2017"));
         assertFalse(CheckInput.checkStudentDate("^?&%"));
         assertFalse(CheckInput.checkStudentDate(""));
     }
 
     @Test
     public void testCheckSubjectTitle(){
-        /*Название учебного предмета может содержать буквы латинского и английского алфавита,цифры, знак пробела,
-        первым символом не может быть пробел и цифра, длинна строки 3-80 символов
-         */
+
 
         assertTrue(CheckInput.checkSubjectTitle("Художественная литература"));
         assertTrue(CheckInput.checkSubjectTitle("Spring 4"));

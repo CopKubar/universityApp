@@ -10,7 +10,7 @@
 
 	<servlet>
 		<servlet-name>university</servlet-name>
-		<servlet-class>servlets.universityServlet.University</servlet-class>
+		<servlet-class>servlet.University</servlet-class>
 		<init-param>
 			<param-name>contextClass</param-name>
 			<param-value>

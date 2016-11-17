@@ -1,11 +1,9 @@
-package servlets.universityServlet;
+package servlet;
 
-import accessoryClasses.CheckInput;
+import assistant.CheckInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import spring.domain.Attend;
 import spring.domain.Rating;
 import spring.domain.Student;
@@ -41,14 +39,10 @@ public class University extends HttpServlet {
     @Qualifier("ratingService")
     GenericService<Rating> ratingService;
 
-    private WebApplicationContext springContext;
-
     @Override
-    public void init(final ServletConfig config) throws ServletException{
+    public void init(ServletConfig config) throws ServletException{
         super.init(config);
-        springContext = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
-        final AutowireCapableBeanFactory beanFactory=springContext.getAutowireCapableBeanFactory();
-        beanFactory.autowireBean(this);
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -359,6 +353,16 @@ public class University extends HttpServlet {
             Subject subject=subjectService.findById(subjectId);
             subject.setDeleted(true);
             subjectService.update(subject);
+
+            List<Attend>list = attendService.getAll();
+
+            for(Attend a: list){
+                if (a.getSubject().getId()==subjectId){
+                    a.setDeleted(true);
+                    attendService.update(a);
+                }
+            }
+
             response.sendRedirect("http://localhost:8080/app/university?url=subjects");
         }
         else {
