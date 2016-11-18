@@ -37,14 +37,7 @@
                 <td>
                     <form action="university" method="get">
                         <input type="hidden" name="url" value="profile">
-                        <c:choose>
-                            <c:when test="${sessionScope.studentId ne null}">
-                                <input type="hidden" name="studentId" value="${sessionScope.studentId}">
-                            </c:when>
-                            <c:otherwise>
-                                <input type="hidden" name="studentId" value="${student.id}">
-                            </c:otherwise>
-                        </c:choose>
+                        <input type="hidden" name="studentId" value="${student.id}">
                         <input type="submit" value="Профиль">
                     </form>
                 </td>
@@ -53,7 +46,6 @@
     </c:forEach>
 </table>
 </div>
-
 
 </body>
 </html>

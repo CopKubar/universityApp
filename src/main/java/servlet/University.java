@@ -16,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +54,7 @@ public class University extends HttpServlet {
         doAllRequests(request, response);
     }
 
-    private void doAllRequests(HttpServletRequest request, HttpServletResponse response){
+    private void doAllRequests(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //Проверка, есть ли в запросе параметр url
         String url = request.getParameter("url");
@@ -65,7 +64,6 @@ public class University extends HttpServlet {
             url = "students";
         }
 
-        try {
                 //Переменная с именем страницы, на которую надо сделать перессылку
                 String jsp = null;
 
@@ -83,7 +81,7 @@ public class University extends HttpServlet {
 
                 //Обработка параметров из формы добавления студента и переадресация на страницу со списком студентов в случае валидности данных
                 else if (url.equals("studentAddForm")){
-                    processingStudentAddForm(request, response);
+                    jsp = processingStudentAddForm(request);
                 }
 
                 //Перессылка на страницу обновления данных студента
@@ -91,9 +89,13 @@ public class University extends HttpServlet {
                     jsp = printStudentUpdatePage(request);
                 }
 
+                else if(url.equals("errorStudentUpdate")){
+                    jsp = printErrorStudentUpdate();
+                }
+
                 //Обработка параметров из формы обновления студента и переадресация на профиль обновленного студента в случае валидности данных
                 else if (url.equals("studentUpdateForm")){
-                    processingStudentUpdateForm(request, response);
+                    jsp = processingStudentUpdateForm(request);
                 }
 
                 //Перессылка на страницу подтверждения удаления студента
@@ -103,14 +105,13 @@ public class University extends HttpServlet {
 
                 //Обработка параметров из формы удаления студента и переадресация на страницу со списком студентов в случае подтверждения
                 else if (url.equals("studentDeleteForm")){
-                    processingStudentDeleteForm(request, response);
+                    jsp = processingStudentDeleteForm(request);
                 }
 
                 //Перессылка на профиль студента
                 else if (url.equals("profile")){
                     jsp = printProfileMainPage(request);
                 }
-
 
                 //Действия с учебным предметом
 
@@ -126,7 +127,7 @@ public class University extends HttpServlet {
 
                 //Обработка данных добавления предмета и переадресация на список предметов в случае валидности данных
                 else if (url.equals("subjectAddForm")){
-                    processingSubjectAddForm(request, response);
+                    jsp = processingSubjectAddForm(request);
                 }
 
                 //Перессылка на страницу редактирования предмета
@@ -136,7 +137,7 @@ public class University extends HttpServlet {
 
                 //Обработка данных обновления предмета и переадресация на список предметов в случае валидности данных
                 else if (url.equals("subjectUpdateForm")){
-                    processingSubjectUpdateForm(request, response);
+                    jsp = processingSubjectUpdateForm(request);
                 }
 
                 //Перессылка на страницу удаления предмета
@@ -146,7 +147,7 @@ public class University extends HttpServlet {
 
                 //Обработка данных удаления предмета и переадресация на список предметов
                 else if(url.equals("subjectDeleteForm")){
-                    processingSubjectDeleteForm(request, response);
+                    jsp = processingSubjectDeleteForm(request);
                 }
 
                 //Действия с назначениями
@@ -158,7 +159,7 @@ public class University extends HttpServlet {
 
                 //Обработка параметров из формы назначения предмета и переадресация на профиль студента
                 else if (url.equals("attendAddForm")){
-                    processingAttendAddForm(request, response);
+                    jsp = processingAttendAddForm(request);
                 }
 
                 //Перессылка на страницу удаления назначения
@@ -168,7 +169,7 @@ public class University extends HttpServlet {
 
                 //Обработка данных удаления назначения и переадресация на профильм студента
                 else if (url.equals("attendDeleteForm")){
-                    processingAttendDeleteForm(request, response);
+                    jsp = processingAttendDeleteForm(request);
                 }
 
                 //Действия с оценками
@@ -180,16 +181,11 @@ public class University extends HttpServlet {
 
                 //Обработка данных добавления оценки и переадресация на профиль студента
                 else if (url.equals("ratingAddForm")){
-                    processingRatingAddForm(request,response);
+                    jsp = processingRatingAddForm(request);
                 }
 
-                if (jsp!=null) {
-                    forward(jsp, request, response);
-                }
+                forward(jsp, request, response);
 
-        } catch (Exception e){
-            e.printStackTrace();
-        }
 
    }
 
@@ -212,19 +208,19 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных добавления студента
-    private void processingStudentAddForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingStudentAddForm(HttpServletRequest request) {
         String firstName=request.getParameter("firstName");
         String lastName=request.getParameter("lastName");
         String entranceYear=request.getParameter("entranceYear");
         if (CheckInput.checkStudentName(firstName) &&CheckInput.checkStudentName(lastName)&&CheckInput.checkStudentDate(entranceYear)){
             studentService.save(new Student(firstName, lastName, Integer.parseInt(entranceYear)));
-            response.sendRedirect("http://localhost:8080/app/university?url=students");
+            return printStudentsMainPage(request);
         }else {
-            HttpSession session = request.getSession();
-            session.setAttribute("firstName", firstName);
-            session.setAttribute("lastName", lastName);
-            session.setAttribute("entranceYear", entranceYear);
-            response.sendRedirect("http://localhost:8080/app/university?url=studentAdd");
+            request.setAttribute("firstName", firstName);
+            request.setAttribute("lastName", lastName);
+            request.setAttribute("entranceYear", entranceYear);
+
+            return "/jsp/errorStudentAdd.jsp";
         }
     }
 
@@ -236,8 +232,12 @@ public class University extends HttpServlet {
        return "/jsp/studentUpdate.jsp";
    }
 
+   private String printErrorStudentUpdate(){
+       return "/jsp/errorStudentUpdate.jsp";
+   }
+
    //Обработка данных обновления студента
-    private void processingStudentUpdateForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingStudentUpdateForm(HttpServletRequest request) {
         Long studentId= Long.parseLong(request.getParameter("studentId"));
         String firstName=request.getParameter("firstName");
         String lastName=request.getParameter("lastName");
@@ -246,15 +246,14 @@ public class University extends HttpServlet {
             Student student = new Student(firstName, lastName, Integer.parseInt(entranceYear));
             student.setId(studentId);
             studentService.update(student);
-            response.sendRedirect("http://localhost:8080/app/university?url=profile&studentId="+studentId);
+            return printProfileMainPage(request);
         }
         else {
-            HttpSession session=request.getSession();
-            session.setAttribute("studentId", studentId);
-            session.setAttribute("firstName", firstName);
-            session.setAttribute("lastName", lastName);
-            session.setAttribute("entranceYear", entranceYear);
-            response.sendRedirect("http://localhost:8080/app/university?url=studentUpdate&studentId="+studentId);
+            request.setAttribute("studentId", studentId);
+            request.setAttribute("firstName", firstName);
+            request.setAttribute("lastName", lastName);
+            request.setAttribute("entranceYear", entranceYear);
+            return "/jsp/errorStudentUpdate.jsp";
         }
     }
 
@@ -266,17 +265,17 @@ public class University extends HttpServlet {
    }
 
     //Обработка данных удаления студента
-   private void processingStudentDeleteForm(HttpServletRequest request , HttpServletResponse response) throws IOException{
+   private String processingStudentDeleteForm(HttpServletRequest request) {
        Long studentId=Long.parseLong(request.getParameter("studentId"));
        String unswer=request.getParameter("unswer");
        if (unswer.equals("yes")){
            Student student = studentService.findById(studentId);
            student.setDeleted(true);
            studentService.update(student);
-           response.sendRedirect("http://localhost:8080/app/university?url=students");
+           return printStudentsMainPage(request);
        }
        else {
-           response.sendRedirect("http://localhost:8080/app/university?url=profile&studentId="+studentId);
+           return printProfileMainPage(request);
        }
    }
 
@@ -300,16 +299,15 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных добавления предмета
-    private void processingSubjectAddForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingSubjectAddForm(HttpServletRequest request) {
         String title=request.getParameter("title");
         if (CheckInput.checkSubjectTitle(title)){
             subjectService.save(new Subject(title));
-            response.sendRedirect("http://localhost:8080/app/university?url=subjects");
+            return printSubjectsMainPage(request);
         }
         else {
-            HttpSession session=request.getSession();
-            session.setAttribute("title", title);
-            response.sendRedirect("http://localhost:8080/app/university?url=subjectAdd");
+            request.setAttribute("title", title);
+            return "/jsp/errorSubjectAdd.jsp";
         }
     }
 
@@ -322,19 +320,19 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных обновления предмета
-    private void processingSubjectUpdateForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingSubjectUpdateForm(HttpServletRequest request) {
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
         String title=request.getParameter("title");
         Subject subject=new Subject(title);
         subject.setId(subjectId);
         if (CheckInput.checkSubjectTitle(title)){
             subjectService.update(subject);
-            response.sendRedirect("http://localhost:8080/app/university?url=subjects");
+            return printSubjectsMainPage(request);
         }
         else {
-            HttpSession session=request.getSession();
-            session.setAttribute("title", title);
-            response.sendRedirect("http://localhost:8080/app/university?url=subjectUpdate&subjectId="+subjectId);
+            request.setAttribute("title", title);
+            request.setAttribute("subjectId", subjectId);
+            return "/jsp/errorSubjectUpdate.jsp";
         }
     }
 
@@ -346,7 +344,7 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных удаления предмета
-    private void processingSubjectDeleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingSubjectDeleteForm(HttpServletRequest request) {
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
         String unswer=request.getParameter("unswer");
         if (unswer.equals("yes")){
@@ -363,10 +361,10 @@ public class University extends HttpServlet {
                 }
             }
 
-            response.sendRedirect("http://localhost:8080/app/university?url=subjects");
+            return printSubjectsMainPage(request);
         }
         else {
-            response.sendRedirect("http://localhost:8080/app/university?url=subjects");
+            return printSubjectsMainPage(request);
         }
     }
 
@@ -398,7 +396,7 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных добавления назначения
-    private void processingAttendAddForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingAttendAddForm(HttpServletRequest request)  {
 
         Long studentId=Long.parseLong(request.getParameter("studentId"));
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
@@ -408,7 +406,7 @@ public class University extends HttpServlet {
 
         attendService.save(new Attend(student, subject));
 
-        response.sendRedirect("http://localhost:8080/university?url=profile&studentId="+studentId);
+        return printProfileMainPage(request);
     }
 
     //Страница удаления назначения
@@ -419,17 +417,21 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных удаления назначения
-    private void processingAttendDeleteForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String processingAttendDeleteForm(HttpServletRequest request) {
         Long attendId=Long.parseLong(request.getParameter("attendId"));
         String unswer=request.getParameter("unswer");
         Attend attend=attendService.findById(attendId);
         if (unswer.equals("yes")){
             attend.setDeleted(true);
             attendService.update(attend);
-            response.sendRedirect("http://localhost:8080/app/university?url=profile&studentId="+attend.getStudent().getId());
+            Student student=studentService.findById(attend.getStudent().getId());
+            request.setAttribute("student", student);
+            return "/jsp/profile.jsp";
         }
         else {
-            response.sendRedirect("http://localhost:8080/app/university?url=profile&studentId="+attend.getStudent().getId());
+            Student student=studentService.findById(attend.getStudent().getId());
+            request.setAttribute("student", student);
+            return "/jsp/profile.jsp";
         }
     }
 
@@ -449,12 +451,14 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных добавления оценки
-    private void processingRatingAddForm(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private String processingRatingAddForm(HttpServletRequest request) {
         Long attendId=Long.parseLong(request.getParameter("attendId"));
         String mark=request.getParameter("mark");
         Attend attend=attendService.findById(attendId);
         ratingService.save(new Rating(attend, Integer.parseInt(mark)));
-        response.sendRedirect("http://localhost:8080/university?url=profile&studentId="+attend.getStudent().getId());
+        Student student=studentService.findById(attend.getStudent().getId());
+        request.setAttribute("student", student);
+        return "/jsp/profile.jsp";
     }
 
 }

@@ -10,6 +10,7 @@
 <table align="center" border=1 bgcolor="#FFDEAD" cellpadding="3">
     <h4 align="center" >Выберите предмет, который надо назначить студенту</h4>
     <c:forEach items="${subjectList}" var="subject">
+        <c:if test="${subject.deleted eq false}">
         <tr>
             <td>
                 <form action="university" method="post">
@@ -20,6 +21,7 @@
                 </form>
             </td>
         </tr>
+        </c:if>
     </c:forEach>
 </table>
 </body>

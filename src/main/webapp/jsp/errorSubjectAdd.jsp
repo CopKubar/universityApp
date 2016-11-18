@@ -8,10 +8,12 @@
 
 <%@include file="menu.jsp"%>
 
+<h4 align="center" style="color:#FF0000">Проверте правильность ввода</h4>
+
 <div align="center">
     <form action="university" method="post">
         <input type="hidden" name="url" value="subjectAddForm">
-                <h4>Предмет </h4> <input type="text" name="title"> <br/>
+        <h4>Предмет </h4> <input type="text" name="title" value="${requestScope.title}"> <br/>
         <br/>
         <input type="submit" value="Добавить предмет">
     </form>
