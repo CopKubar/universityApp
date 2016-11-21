@@ -1,5 +1,5 @@
 ﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Subject update</title>
@@ -7,15 +7,21 @@
 <body>
     <%@include file="menu.jsp"%>
 
-        <div align="center">
+<style>
+	.subjectUpdate{
+			position: relative;
+            left: 10px;
+			top: 60px;
+	}
+</style>
+
+        <div class="subjectUpdate">
             <form action="university" method="post">
                 <input type="hidden" name="url" value="subjectUpdateForm">
                 <input type="hidden" name="subjectId" value="${subject.id}">
-                <h4>Предмет</h4> <input type="text" name="title" value="${subject.title}">
-            <br/>
-            <input type="submit" value="Редактировать">
+                <p><label><B>Предмет:</B> <input type="text" name="title" value="${subject.title}"></label></p>
+				<input type="submit" value="Редактировать">
             </form>
         </div>
-
 </body>
 </html>

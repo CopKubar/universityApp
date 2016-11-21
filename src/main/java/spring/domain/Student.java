@@ -16,8 +16,6 @@ public class Student implements Serializable{
     private Boolean deleted;
     private List<Attend> attends=new ArrayList<>(0);
 
-
-
     public Student(){}
 
     public Student(String firstName, String lastName, Integer entranceYear){

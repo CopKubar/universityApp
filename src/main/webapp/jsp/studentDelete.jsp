@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -8,9 +8,16 @@
 
 <%@include file="menu.jsp"%>
 
-<h4 align="center">Отчислить студента ?</h4>
+<style>
+	.studentDelete{
+			position: relative;
+            bottom: 70px;
+            left: 200px;
+	}
+</style>
 
-<div align="center">
+<div class="studentDelete">
+	 <h4 >Отчиcлить студента ?</h4>
     <form action="university" method="post">
         <input type="hidden" name="url" value="studentDeleteForm">
         <input type="hidden" name="studentId" value="${studentId}">
@@ -20,6 +27,5 @@
         <input type="submit" value="Подтвердить">
     </form>
 </div>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Attend delete</title>
@@ -6,9 +6,17 @@
 <body>
 <%@include file="menu.jsp"%>
 
-<h4 align="center">Удалить назначение ?</h4>
+<style>
+	.attendDelete{
+			position: relative;
+            bottom: 70px;
+            left: 230px;
+	}
+</style>
 
-<div align="center">
+<div class="attendDelete">
+<h4>Удалить назначение ?</h4>
+
     <form action="university" method="post">
         <input type="hidden" name="url" value="attendDeleteForm">
         <input type="hidden" name="attendId" value="${attendId}">

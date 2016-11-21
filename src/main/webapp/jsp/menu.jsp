@@ -1,10 +1,18 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
     <title>Menu</title>
 </head>
 <body>
-<div align="center">
+<style>
+        .menu {
+            position: relative;
+			top: 10px;
+            left: 10px;
+        }
+</style>
+
+<div class="menu">
     <form action="university" method="get">
         <input type="hidden" name="url" value="students">
         <input type="submit" value="Студенты">

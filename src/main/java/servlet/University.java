@@ -10,7 +10,6 @@ import spring.domain.Student;
 import spring.domain.Subject;
 import spring.service.GenericService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -185,13 +184,10 @@ public class University extends HttpServlet {
                 }
 
                 forward(jsp, request, response);
-
-
    }
 
-   public void forward(String to, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-       RequestDispatcher dispatcher=getServletContext().getRequestDispatcher(to);
-       dispatcher.forward(request, response);
+   private void forward(String to, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       this.getServletContext().getRequestDispatcher(to).forward(request, response);
    }
 
    //Student методы
@@ -299,16 +295,16 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных добавления предмета
-    private String processingSubjectAddForm(HttpServletRequest request) {
+    private String processingSubjectAddForm(HttpServletRequest request) throws IOException, ServletException {
         String title=request.getParameter("title");
-        if (CheckInput.checkSubjectTitle(title)){
-            subjectService.save(new Subject(title));
-            return printSubjectsMainPage(request);
-        }
-        else {
-            request.setAttribute("title", title);
-            return "/jsp/errorSubjectAdd.jsp";
-        }
+            if (CheckInput.checkSubjectTitle(title)) {
+                subjectService.save(new Subject(title));
+                request.setAttribute("subjectList", subjectService.getAll());
+                return "/jsp/subjects.jsp";
+            }else {
+                request.setAttribute("title", title);
+                return "/jsp/errorSubjectAdd.jsp";
+            }
     }
 
     //Страница обновления предмета
@@ -320,7 +316,7 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных обновления предмета
-    private String processingSubjectUpdateForm(HttpServletRequest request) {
+    private String processingSubjectUpdateForm(HttpServletRequest request) throws IOException, ServletException {
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
         String title=request.getParameter("title");
         Subject subject=new Subject(title);
@@ -344,23 +340,20 @@ public class University extends HttpServlet {
     }
 
     //Обработка данных удаления предмета
-    private String processingSubjectDeleteForm(HttpServletRequest request) {
+    private String processingSubjectDeleteForm(HttpServletRequest request) throws IOException, ServletException {
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
         String unswer=request.getParameter("unswer");
         if (unswer.equals("yes")){
             Subject subject=subjectService.findById(subjectId);
             subject.setDeleted(true);
             subjectService.update(subject);
-
             List<Attend>list = attendService.getAll();
-
             for(Attend a: list){
                 if (a.getSubject().getId()==subjectId){
                     a.setDeleted(true);
                     attendService.update(a);
                 }
             }
-
             return printSubjectsMainPage(request);
         }
         else {
@@ -374,22 +367,21 @@ public class University extends HttpServlet {
     private String printAttendAddPage(HttpServletRequest request){
         Long studentId=Long.parseLong(request.getParameter("studentId"));
         Student student=studentService.findById(studentId);
-
         List<Attend> attends=student.getAttends();
         List<Subject>subjects=new ArrayList<>();
-
         for (Subject s: subjectService.getAll()){
             int count=0;
             for(Attend a: attends){
                 if (s.getId()==a.getSubject().getId()){
-                    count++;
+                    if(a.getDeleted()) {
+                        count++;
+                    }
                 }
             }
             if (count==0){
                 subjects.add(s);
             }
         }
-
         request.setAttribute("subjectList", subjects);
         request.setAttribute("studentId", studentId);
         return "/jsp/attendAdd.jsp";
@@ -397,15 +389,11 @@ public class University extends HttpServlet {
 
     //Обработка данных добавления назначения
     private String processingAttendAddForm(HttpServletRequest request)  {
-
         Long studentId=Long.parseLong(request.getParameter("studentId"));
         Long subjectId=Long.parseLong(request.getParameter("subjectId"));
-
         Student student=studentService.findById(studentId);
         Subject subject=subjectService.findById(subjectId);
-
         attendService.save(new Attend(student, subject));
-
         return printProfileMainPage(request);
     }
 
@@ -438,15 +426,7 @@ public class University extends HttpServlet {
     //Страница добавления оценки
     private String printRatingAddPage(HttpServletRequest request){
         Long attendId=Long.parseLong(request.getParameter("attendId"));
-
-        List<Integer>marks=new ArrayList<>();
-        for (int n=1; n<11; n++){
-            marks.add(n);
-        }
-
         request.setAttribute("attendId", attendId);
-        request.setAttribute("marks", marks);
-
         return "/jsp/ratingAdd.jsp";
     }
 
@@ -460,5 +440,4 @@ public class University extends HttpServlet {
         request.setAttribute("student", student);
         return "/jsp/profile.jsp";
     }
-
 }

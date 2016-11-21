@@ -17,7 +17,6 @@ public class StudentService implements GenericService<Student> {
     @Qualifier("studentDao")
     StudentDao studentDao;
 
-
     @Override
     public void save(Student student) {
         studentDao.save(student);

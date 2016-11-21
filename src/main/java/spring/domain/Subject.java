@@ -18,8 +18,6 @@ public class Subject implements Serializable {
         this.deleted=false;
     }
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -56,5 +54,4 @@ public class Subject implements Serializable {
                 ", title='" + title + '\'' +
                 '}';
     }
-
 }

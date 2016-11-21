@@ -7,6 +7,11 @@
 <body bgcolor="#F0FFFF">
 	<h1 align="center" style="color:#FF0000">Такой страницы не существует</h1>
 
-
+	<dev align="center">
+		<form action="university" method="get">
+			<input type="hidden" name="url" value="students">
+			<input type="submit" value="Вернуться на главную">
+		</form>
+	</dev>
 </body>
 </html>

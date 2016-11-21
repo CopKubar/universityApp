@@ -171,7 +171,6 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         }else {
             attend.setSubject(subject1);
         }
-
         attendService.update(attend);
         List<Attend>listAfter = attendService.getAll();
         Attend attend1 = listAfter.get(listAfter.size()-1);
@@ -230,7 +229,6 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         }else {
             rating.setAttend(attend1);
         }
-
         ratingService.update(rating);
         List<Rating>listAfter = ratingService.getAll();
         Rating rating1 = listAfter.get(listAfter.size()-1);
@@ -255,12 +253,10 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         assertTrue(rating.getAttend().getId()==rating1.getAttend().getId());
     }
 
-
     //CheckInput tests
     @Test
     public void testCheckStudentName(){
         //Имя и фамилия может содержать буквы латинского алфавита, длинна строки 2-15 символа
-
         assertTrue(CheckInput.checkStudentName("Саша"));
         assertFalse(CheckInput.checkStudentName("Sasha")); //Английского алфавит
         assertFalse(CheckInput.checkStudentName("С")); //Длинна строки (2-15)
@@ -274,7 +270,6 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
     @Test
     public void testCheckStudentDate(){
         //Год поступления состоит только из цифр, в диапазоне 1970-2016 года
-
         assertTrue(CheckInput.checkStudentDate("2016"));
         assertFalse(CheckInput.checkStudentDate("AAA"));
         assertFalse(CheckInput.checkStudentDate("1969"));
@@ -284,8 +279,6 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
 
     @Test
     public void testCheckSubjectTitle(){
-
-
         assertTrue(CheckInput.checkSubjectTitle("Художественная литература"));
         assertTrue(CheckInput.checkSubjectTitle("Spring 4"));
         assertFalse(CheckInput.checkSubjectTitle("2ая Мировая Война")); //Первый символ цифра
@@ -294,7 +287,4 @@ public class UniversityTest extends AbstractTransactionalTestNGSpringContextTest
         assertFalse(CheckInput.checkSubjectTitle("Высшая математикаВысшая математикаВысшая математикаВысшая математикаВысшая математика")); //Строка длиннее допустимого диапазона
         assertFalse(CheckInput.checkSubjectTitle("#%@!^")); //Наличие символов
     }
-
-
-
 }

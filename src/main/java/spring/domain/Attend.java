@@ -75,6 +75,4 @@ public class Attend implements Serializable {
     public String toString() {
         return "Attend id = "+id;
     }
-
-
 }

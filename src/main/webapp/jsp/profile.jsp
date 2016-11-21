@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" session="true"  %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -8,19 +8,55 @@
 
 <%@include file="menu.jsp"%>
 
+<style>
+        .tableProfile {
+            position: relative;
+            bottom: 310px;
+            left: 270px;
+        }
+		.actionProfile{
+            position: relative;
+			top: 10px;
+            left: 10px;
+        }
+		.info{
+			position: relative;
+			top: 70px;
+			left:10px;
+		}
+</style>
+	
+<div class="actionProfile">
+<form action="university" method="get">
+    <input type="hidden" name="url" value="studentUpdate">
+    <input type="hidden" name="studentId" value=${student.id}>
+    <input type="submit" value="Редактировать профиль">
+</form>
+<form action="university" method="get">
+    <input type="hidden" name="url" value="studentDelete">
+    <input type="hidden" name="studentId" value=${student.id}>
+    <input type="submit" value="Отчислить студента">
+</form>
+<form action="university" method="get">
+    <input type="hidden" name="url" value="attendAdd">
+    <input type="hidden" name="studentId" value=${student.id}>
+    <input type="submit" value="Назначить предмет студенту">
+</form>
+</div>
+	
+<div class="info">
 <p>
-    <h4>Карточка студента :</h4> </br>
-    Номер студента: ${student.id}</br>
-    Имя: ${student.firstName}</br>
-    Фамилия: ${student.lastName}</br>
-    Год поступления: ${student.entranceYear}
+    <h4>Карточка студента :</h4>
+    Номер студента: <B>${student.id}</B></br>
+    Имя: <B>${student.firstName}</B></br>
+    Фамилия: <B>${student.lastName}</B></br>
+    Год поступления: <B>${student.entranceYear}</B>
 </p>
+</div>
 
-<%@include file="actionForStudent.jsp"%>
-
-<div align="center">
-    <table border=1 bgcolor="#FFDEAD" cellpadding="3">
-        <caption><h4>Предметы и оценки студента ${student.firstName} ${student.lastName}</h4></caption>
+<div class="tableProfile">
+    <table border="2" bgcolor="#C1CDCD">
+        <th colspan="2">Предметы и оценки студента ${student.firstName} ${student.lastName}</th>
         <c:forEach items="${student.attends}" var="attend">
             <c:if test="${attend.deleted eq false}">
                 <tr>

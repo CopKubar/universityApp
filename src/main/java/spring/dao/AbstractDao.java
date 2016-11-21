@@ -38,7 +38,6 @@ public abstract class AbstractDao<T> implements GenericDao<T>{
         List<T>list=createQuery(getSession());
         return list;
 }
-
     @Override
     @SuppressWarnings("unchecked")
     public T getById(Long id) {
@@ -50,5 +49,4 @@ public abstract class AbstractDao<T> implements GenericDao<T>{
     abstract Criteria createCriteria(Session session);
 
     abstract List<T> createQuery(Session session);
-
 }
