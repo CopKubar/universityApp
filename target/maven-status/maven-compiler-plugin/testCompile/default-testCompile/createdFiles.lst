@@ -1,0 +1,4 @@
+com\kubar\universityapp\service\AttendServiceTest.class
+com\kubar\universityapp\service\StudentServiceTest.class
+com\kubar\universityapp\service\RatingServiceTest.class
+com\kubar\universityapp\service\SubjectServiceTest.class

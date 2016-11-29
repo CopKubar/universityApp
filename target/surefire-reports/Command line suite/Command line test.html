@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>20/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Nov 29 18:52:41 MSK 2016</td>
+</tr>
+<tr><td>Total time:</td><td>12 seconds (12164 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.kubar.universityapp.service.AttendServiceTest.testAttendCreate()'><b>testAttendCreate</b><br>Test class: com.kubar.universityapp.service.AttendServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.AttendServiceTest@57855c9a</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.AttendServiceTest.testAttendDelete()'><b>testAttendDelete</b><br>Test class: com.kubar.universityapp.service.AttendServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.AttendServiceTest@57855c9a</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.AttendServiceTest.testAttendFindById()'><b>testAttendFindById</b><br>Test class: com.kubar.universityapp.service.AttendServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.AttendServiceTest@57855c9a</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.AttendServiceTest.testAttendGetAll()'><b>testAttendGetAll</b><br>Test class: com.kubar.universityapp.service.AttendServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.AttendServiceTest@57855c9a</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.AttendServiceTest.testAttendUpdate()'><b>testAttendUpdate</b><br>Test class: com.kubar.universityapp.service.AttendServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.AttendServiceTest@57855c9a</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.RatingServiceTest.testRatingCreate()'><b>testRatingCreate</b><br>Test class: com.kubar.universityapp.service.RatingServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.RatingServiceTest@5a8806ef</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.RatingServiceTest.testRatingDelete()'><b>testRatingDelete</b><br>Test class: com.kubar.universityapp.service.RatingServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.RatingServiceTest@5a8806ef</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.RatingServiceTest.testRatingFindById()'><b>testRatingFindById</b><br>Test class: com.kubar.universityapp.service.RatingServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.RatingServiceTest@5a8806ef</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.RatingServiceTest.testRatingGetAll()'><b>testRatingGetAll</b><br>Test class: com.kubar.universityapp.service.RatingServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.RatingServiceTest@5a8806ef</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.RatingServiceTest.testRatingUpdate()'><b>testRatingUpdate</b><br>Test class: com.kubar.universityapp.service.RatingServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.RatingServiceTest@5a8806ef</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.StudentServiceTest.testStudentCreate()'><b>testStudentCreate</b><br>Test class: com.kubar.universityapp.service.StudentServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.StudentServiceTest@5e853265</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.StudentServiceTest.testStudentDelete()'><b>testStudentDelete</b><br>Test class: com.kubar.universityapp.service.StudentServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.StudentServiceTest@5e853265</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.StudentServiceTest.testStudentFindById()'><b>testStudentFindById</b><br>Test class: com.kubar.universityapp.service.StudentServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.StudentServiceTest@5e853265</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.StudentServiceTest.testStudentGetAll()'><b>testStudentGetAll</b><br>Test class: com.kubar.universityapp.service.StudentServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.StudentServiceTest@5e853265</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.StudentServiceTest.testStudentUpdate()'><b>testStudentUpdate</b><br>Test class: com.kubar.universityapp.service.StudentServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.StudentServiceTest@5e853265</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.SubjectServiceTest.testSubjectCreate()'><b>testSubjectCreate</b><br>Test class: com.kubar.universityapp.service.SubjectServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.SubjectServiceTest@7d0587f1</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.SubjectServiceTest.testSubjectDelete()'><b>testSubjectDelete</b><br>Test class: com.kubar.universityapp.service.SubjectServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.SubjectServiceTest@7d0587f1</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.SubjectServiceTest.testSubjectFindById()'><b>testSubjectFindById</b><br>Test class: com.kubar.universityapp.service.SubjectServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.SubjectServiceTest@7d0587f1</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.SubjectServiceTest.testSubjectGetAll()'><b>testSubjectGetAll</b><br>Test class: com.kubar.universityapp.service.SubjectServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.SubjectServiceTest@7d0587f1</td></tr>
+<tr>
+<td title='com.kubar.universityapp.service.SubjectServiceTest.testSubjectUpdate()'><b>testSubjectUpdate</b><br>Test class: com.kubar.universityapp.service.SubjectServiceTest</td>
+<td></td>
+<td>0</td>
+<td>com.kubar.universityapp.service.SubjectServiceTest@7d0587f1</td></tr>
+</table><p>
+</body>
+</html>

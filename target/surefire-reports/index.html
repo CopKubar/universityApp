@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Command_line_suite">
+              <span class="suite-name border-passed">Command line suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Command_line_suite">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Command_line_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Command_line_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Command_line_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Command_line_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Command_line_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Command_line_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">20 methods,   20 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Command_line_suite" class="hide-methods passed suite-Command_line_suite"> (hide)</a> <!-- hide-methods passed suite-Command_line_suite -->
+                      <a href="#" panel-name="suite-Command_line_suite" class="show-methods passed suite-Command_line_suite"> (show)</a> <!-- show-methods passed suite-Command_line_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Command_line_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.AttendServiceTest" hash-for-method="testAttendCreate">testAttendCreate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.AttendServiceTest" hash-for-method="testAttendDelete">testAttendDelete</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.AttendServiceTest" hash-for-method="testAttendFindById">testAttendFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.AttendServiceTest" hash-for-method="testAttendGetAll">testAttendGetAll</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.AttendServiceTest" hash-for-method="testAttendUpdate">testAttendUpdate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.RatingServiceTest" hash-for-method="testRatingCreate">testRatingCreate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.RatingServiceTest" hash-for-method="testRatingDelete">testRatingDelete</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.RatingServiceTest" hash-for-method="testRatingFindById">testRatingFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.RatingServiceTest" hash-for-method="testRatingGetAll">testRatingGetAll</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.RatingServiceTest" hash-for-method="testRatingUpdate">testRatingUpdate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.StudentServiceTest" hash-for-method="testStudentCreate">testStudentCreate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.StudentServiceTest" hash-for-method="testStudentDelete">testStudentDelete</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.StudentServiceTest" hash-for-method="testStudentFindById">testStudentFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.StudentServiceTest" hash-for-method="testStudentGetAll">testStudentGetAll</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.StudentServiceTest" hash-for-method="testStudentUpdate">testStudentUpdate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.SubjectServiceTest" hash-for-method="testSubjectCreate">testSubjectCreate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.SubjectServiceTest" hash-for-method="testSubjectDelete">testSubjectDelete</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.SubjectServiceTest" hash-for-method="testSubjectFindById">testSubjectFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.SubjectServiceTest" hash-for-method="testSubjectGetAll">testSubjectGetAll</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.kubar.universityapp.service.SubjectServiceTest" hash-for-method="testSubjectUpdate">testSubjectUpdate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Command_line_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Command_line_suite" class="panel Command_line_suite">
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.kubar.universityapp.service.AttendServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAttendCreate">
+                  </a> <!-- testAttendCreate -->
+                  <span class="method-name">testAttendCreate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAttendDelete">
+                  </a> <!-- testAttendDelete -->
+                  <span class="method-name">testAttendDelete</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAttendFindById">
+                  </a> <!-- testAttendFindById -->
+                  <span class="method-name">testAttendFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAttendGetAll">
+                  </a> <!-- testAttendGetAll -->
+                  <span class="method-name">testAttendGetAll</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAttendUpdate">
+                  </a> <!-- testAttendUpdate -->
+                  <span class="method-name">testAttendUpdate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.kubar.universityapp.service.RatingServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRatingCreate">
+                  </a> <!-- testRatingCreate -->
+                  <span class="method-name">testRatingCreate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRatingDelete">
+                  </a> <!-- testRatingDelete -->
+                  <span class="method-name">testRatingDelete</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRatingFindById">
+                  </a> <!-- testRatingFindById -->
+                  <span class="method-name">testRatingFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRatingGetAll">
+                  </a> <!-- testRatingGetAll -->
+                  <span class="method-name">testRatingGetAll</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRatingUpdate">
+                  </a> <!-- testRatingUpdate -->
+                  <span class="method-name">testRatingUpdate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.kubar.universityapp.service.SubjectServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubjectCreate">
+                  </a> <!-- testSubjectCreate -->
+                  <span class="method-name">testSubjectCreate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubjectDelete">
+                  </a> <!-- testSubjectDelete -->
+                  <span class="method-name">testSubjectDelete</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubjectFindById">
+                  </a> <!-- testSubjectFindById -->
+                  <span class="method-name">testSubjectFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubjectGetAll">
+                  </a> <!-- testSubjectGetAll -->
+                  <span class="method-name">testSubjectGetAll</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSubjectUpdate">
+                  </a> <!-- testSubjectUpdate -->
+                  <span class="method-name">testSubjectUpdate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.kubar.universityapp.service.StudentServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testStudentCreate">
+                  </a> <!-- testStudentCreate -->
+                  <span class="method-name">testStudentCreate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testStudentDelete">
+                  </a> <!-- testStudentDelete -->
+                  <span class="method-name">testStudentDelete</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testStudentFindById">
+                  </a> <!-- testStudentFindById -->
+                  <span class="method-name">testStudentFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testStudentGetAll">
+                  </a> <!-- testStudentGetAll -->
+                  <span class="method-name">testStudentGetAll</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testStudentUpdate">
+                  </a> <!-- testStudentUpdate -->
+                  <span class="method-name">testStudentUpdate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+        </div> <!-- panel Command_line_suite -->
+        <div panel-name="test-xml-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;Command line suite&quot;&gt;
+  &lt;test name=&quot;Command line test&quot; preserve-order=&quot;false&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.kubar.universityapp.service.AttendServiceTest&quot;/&gt;
+      &lt;class name=&quot;com.kubar.universityapp.service.RatingServiceTest&quot;/&gt;
+      &lt;class name=&quot;com.kubar.universityapp.service.StudentServiceTest&quot;/&gt;
+      &lt;class name=&quot;com.kubar.universityapp.service.SubjectServiceTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Command line test --&gt;
+&lt;/suite&gt; &lt;!-- Command line suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Command line test (4 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Command_line_suite');
+function tableData_Command_line_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(20);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testAttendCreate')
+data.setCell(0, 2, 'com.kubar.universityapp.service.AttendServiceTest')
+data.setCell(0, 3, 595);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testStudentFindById')
+data.setCell(1, 2, 'com.kubar.universityapp.service.StudentServiceTest')
+data.setCell(1, 3, 313);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testStudentUpdate')
+data.setCell(2, 2, 'com.kubar.universityapp.service.StudentServiceTest')
+data.setCell(2, 3, 233);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testRatingCreate')
+data.setCell(3, 2, 'com.kubar.universityapp.service.RatingServiceTest')
+data.setCell(3, 3, 200);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testRatingFindById')
+data.setCell(4, 2, 'com.kubar.universityapp.service.RatingServiceTest')
+data.setCell(4, 3, 153);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testStudentDelete')
+data.setCell(5, 2, 'com.kubar.universityapp.service.StudentServiceTest')
+data.setCell(5, 3, 143);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testAttendUpdate')
+data.setCell(6, 2, 'com.kubar.universityapp.service.AttendServiceTest')
+data.setCell(6, 3, 138);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testAttendFindById')
+data.setCell(7, 2, 'com.kubar.universityapp.service.AttendServiceTest')
+data.setCell(7, 3, 128);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testAttendDelete')
+data.setCell(8, 2, 'com.kubar.universityapp.service.AttendServiceTest')
+data.setCell(8, 3, 98);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testStudentCreate')
+data.setCell(9, 2, 'com.kubar.universityapp.service.StudentServiceTest')
+data.setCell(9, 3, 95);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testRatingUpdate')
+data.setCell(10, 2, 'com.kubar.universityapp.service.RatingServiceTest')
+data.setCell(10, 3, 93);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testSubjectUpdate')
+data.setCell(11, 2, 'com.kubar.universityapp.service.SubjectServiceTest')
+data.setCell(11, 3, 66);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testAttendGetAll')
+data.setCell(12, 2, 'com.kubar.universityapp.service.AttendServiceTest')
+data.setCell(12, 3, 57);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testSubjectDelete')
+data.setCell(13, 2, 'com.kubar.universityapp.service.SubjectServiceTest')
+data.setCell(13, 3, 49);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testRatingDelete')
+data.setCell(14, 2, 'com.kubar.universityapp.service.RatingServiceTest')
+data.setCell(14, 3, 43);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testSubjectCreate')
+data.setCell(15, 2, 'com.kubar.universityapp.service.SubjectServiceTest')
+data.setCell(15, 3, 42);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testSubjectFindById')
+data.setCell(16, 2, 'com.kubar.universityapp.service.SubjectServiceTest')
+data.setCell(16, 3, 34);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testRatingGetAll')
+data.setCell(17, 2, 'com.kubar.universityapp.service.RatingServiceTest')
+data.setCell(17, 3, 32);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testSubjectGetAll')
+data.setCell(18, 2, 'com.kubar.universityapp.service.SubjectServiceTest')
+data.setCell(18, 3, 27);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testStudentGetAll')
+data.setCell(19, 2, 'com.kubar.universityapp.service.StudentServiceTest')
+data.setCell(19, 3, 9);
+window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <div id="times-div-Command_line_suite">
+              </div> <!-- times-div-Command_line_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.kubar.universityapp.service.AttendServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">19 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendCreate())</span>
+                <span class="method-start">4946 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAttendCreate</span>
+                <span class="method-start">5267 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendCreate())</span>
+                <span class="method-start">5863 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendDelete())</span>
+                <span class="method-start">5931 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAttendDelete</span>
+                <span class="method-start">5971 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendDelete())</span>
+                <span class="method-start">6069 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendFindById())</span>
+                <span class="method-start">6125 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAttendFindById</span>
+                <span class="method-start">6143 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendFindById())</span>
+                <span class="method-start">6271 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendGetAll())</span>
+                <span class="method-start">6327 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAttendGetAll</span>
+                <span class="method-start">6370 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendGetAll())</span>
+                <span class="method-start">6427 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendUpdate())</span>
+                <span class="method-start">6427 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAttendUpdate</span>
+                <span class="method-start">6578 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.AttendServiceTest.testAttendUpdate())</span>
+                <span class="method-start">6716 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">6979 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.kubar.universityapp.service.RatingServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
+                <span class="method-start">6980 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">6980 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingCreate())</span>
+                <span class="method-start">6988 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRatingCreate</span>
+                <span class="method-start">7195 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingCreate())</span>
+                <span class="method-start">7395 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingDelete())</span>
+                <span class="method-start">7618 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRatingDelete</span>
+                <span class="method-start">7687 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingDelete())</span>
+                <span class="method-start">7731 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingFindById())</span>
+                <span class="method-start">7805 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRatingFindById</span>
+                <span class="method-start">7871 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingFindById())</span>
+                <span class="method-start">8024 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingGetAll())</span>
+                <span class="method-start">8066 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRatingGetAll</span>
+                <span class="method-start">8291 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingGetAll())</span>
+                <span class="method-start">8325 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingUpdate())</span>
+                <span class="method-start">8329 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRatingUpdate</span>
+                <span class="method-start">8543 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.RatingServiceTest.testRatingUpdate())</span>
+                <span class="method-start">8636 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">8757 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.kubar.universityapp.service.StudentServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
+                <span class="method-start">8757 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">8757 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentCreate())</span>
+                <span class="method-start">8764 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testStudentCreate</span>
+                <span class="method-start">8787 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentCreate())</span>
+                <span class="method-start">8882 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentDelete())</span>
+                <span class="method-start">9014 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testStudentDelete</span>
+                <span class="method-start">9437 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentDelete())</span>
+                <span class="method-start">9581 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentFindById())</span>
+                <span class="method-start">9700 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testStudentFindById</span>
+                <span class="method-start">9891 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentFindById())</span>
+                <span class="method-start">10204 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentGetAll())</span>
+                <span class="method-start">10323 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testStudentGetAll</span>
+                <span class="method-start">10352 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentGetAll())</span>
+                <span class="method-start">10361 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentUpdate())</span>
+                <span class="method-start">10365 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testStudentUpdate</span>
+                <span class="method-start">10402 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.StudentServiceTest.testStudentUpdate())</span>
+                <span class="method-start">10635 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">10893 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.kubar.universityapp.service.SubjectServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextBeforeTestClass</span>
+                <span class="method-start">10894 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">springTestContextPrepareTestInstance</span>
+                <span class="method-start">10894 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectCreate())</span>
+                <span class="method-start">10907 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubjectCreate</span>
+                <span class="method-start">11106 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectCreate())</span>
+                <span class="method-start">11148 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectDelete())</span>
+                <span class="method-start">11215 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubjectDelete</span>
+                <span class="method-start">11259 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectDelete())</span>
+                <span class="method-start">11309 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectFindById())</span>
+                <span class="method-start">11390 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubjectFindById</span>
+                <span class="method-start">11536 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectFindById())</span>
+                <span class="method-start">11571 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectGetAll())</span>
+                <span class="method-start">11669 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubjectGetAll</span>
+                <span class="method-start">11831 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectGetAll())</span>
+                <span class="method-start">11858 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">springTestContextBeforeTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectUpdate())</span>
+                <span class="method-start">11858 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSubjectUpdate</span>
+                <span class="method-start">11999 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">springTestContextAfterTestMethod(public void com.kubar.universityapp.service.SubjectServiceTest.testSubjectUpdate())</span>
+                <span class="method-start">12065 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">springTestContextAfterTestClass</span>
+                <span class="method-start">12148 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
