@@ -35,6 +35,9 @@ public class AppInitializer implements WebApplicationInitializer {
 		filterEncoding.addMappingForServletNames(null, true, "dispatcher");
 
 		container.addListener(new ContextLoaderListener(ctx));
+
+
+
 	}
 
 }
