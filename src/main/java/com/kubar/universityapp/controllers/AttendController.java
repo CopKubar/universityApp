@@ -66,7 +66,7 @@ public class AttendController {
         attend.setSubject(subject);
         attend.setStudent(student);
         attendService.save(attend);
-        return new ModelAndView(new RedirectView("/university/profile/student/"+studentId));
+        return new ModelAndView(new RedirectView("/university/student/profile/"+studentId));
     }
 
     @RequestMapping(value = {"/attend/delete/{id1}"}, method = RequestMethod.GET)
@@ -74,7 +74,7 @@ public class AttendController {
         Attend attend = attendService.findById(id1);
         attend.setDeleted(true);
         attendService.update(attend);
-        return new ModelAndView(new RedirectView("/university/profile/student/"+attend.getStudent().getId()));
+        return new ModelAndView(new RedirectView("/university/student/profile/"+attend.getStudent().getId()));
     }
 
     @InitBinder

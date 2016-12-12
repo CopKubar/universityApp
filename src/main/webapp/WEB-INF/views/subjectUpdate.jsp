@@ -10,26 +10,19 @@
 <%@include file="menu.jsp"%>
 
 <style>
-	.subjectAdd{
-			position: relative;
-            left: 10px;
-			top: 40px;
-	}
+    .subjectAdd{
+        position: relative;
+        left: 10px;
+        top: 40px;
+    }
     .error {
         color: #ff0000;
     }
 </style>
 
 <div class="subjectAdd">
-    <c:choose>
-        <c:when test="${edit eq true}">
             <h2>Форма редактирования предмета</h2>
-        </c:when>
-        <c:otherwise>
-            <h2>Форма добавления предмета</h2>
-        </c:otherwise>
-    </c:choose>
-    <form:form  method="post" modelAttribute="subject">
+    <form:form  method="post" modelAttribute="subject" action="id">
         <form:input type="hidden" path="id" id="id"/>
         <table>
             <tr>
@@ -39,14 +32,7 @@
             </tr>
             <tr>
                 <td colspan="3" >
-                    <c:choose>
-                        <c:when test="${edit eq true}">
                             <input type="submit" value="Обновить"/>
-                        </c:when>
-                        <c:otherwise>
-                            <input type="submit" value="Добавить"/>
-                        </c:otherwise>
-                    </c:choose>
                 </td>
             </tr>
         </table>

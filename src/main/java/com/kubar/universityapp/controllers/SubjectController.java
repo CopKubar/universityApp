@@ -2,13 +2,16 @@ package com.kubar.universityapp.controllers;
 
 import com.kubar.universityapp.model.Subject;
 import com.kubar.universityapp.service.GenericService;
+import com.kubar.universityapp.validation.ResponseToAjax;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -27,26 +30,32 @@ public class SubjectController {
         ModelAndView mov = new ModelAndView();
         List<Subject>list = subjectService.getAll();
         mov.addObject("subjectList", list);
+        mov.addObject("subject", new Subject());
         mov.setViewName("subjects");
         return mov;
     }
 
-    @RequestMapping(value = {"/subjectAdd"}, method = RequestMethod.GET)
-    public ModelAndView subjectAdd(){
-        ModelAndView mov = new ModelAndView();
-        Subject subject = new Subject();
-        mov.addObject("subject", subject);
-        mov.setViewName("subjectAddAndUpdate");
-        return mov;
-    }
 
-    @RequestMapping(value = {"/subjectAdd"}, method = RequestMethod.POST)
-    public ModelAndView saveSubject(@Valid Subject subject, BindingResult result){
+    @RequestMapping(value = "/subjectAdd", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseToAjax saveSubject(@Valid Subject subject, BindingResult result){
+        ResponseToAjax response = new ResponseToAjax();
         if (result.hasErrors()){
-            return new ModelAndView("subjectAddAndUpdate");
+            response.setHasError(true);
+            String errorString="";
+            for (ObjectError error: result.getAllErrors()){
+                errorString+=error.getDefaultMessage()+"\n";
+            }
+            response.setStatus(errorString);
+            response.setSubject(subject);
+            return response;
+        }else {
+            response.setHasError(false);
+            response.setStatus("Предмет "+subject.getTitle()+" успешно добавлен!");
+            subjectService.save(subject);
+            response.setSubject(subject);
+            return response;
         }
-        subjectService.save(subject);
-        return new ModelAndView(new RedirectView("/university/subjects"));
     }
 
 
@@ -55,18 +64,14 @@ public class SubjectController {
         ModelAndView mov = new ModelAndView();
         Subject subject = subjectService.findById(id);
         mov.addObject("subject", subject);
-        mov.addObject("edit", true);
-        mov.setViewName("subjectAddAndUpdate");
+        mov.setViewName("subjectUpdate");
         return mov;
     }
 
-    @RequestMapping(value = {"/subject/update/{id}"}, method = RequestMethod.POST)
-    public ModelAndView updateSubject(@PathVariable Long id,@Valid Subject subject, BindingResult result){
+    @RequestMapping(value = {"/subject/update/id"}, method = RequestMethod.POST)
+    public ModelAndView updateSubject(@Valid Subject subject, BindingResult result){
         if (result.hasErrors()){
-            ModelAndView mov = new ModelAndView();
-            mov.addObject("edit", true);
-            mov.setViewName("subjectAddAndUpdate");
-            return mov;
+            System.out.println();
         }
         subjectService.update(subject);
         return new ModelAndView(new RedirectView("/university/subjects"));

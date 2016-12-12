@@ -27,23 +27,15 @@
 
 <%@include file="menu.jsp"%>
 
-<c:if test="${edit eq true}">
-	<div class="profile">
-		<a href="<c:url value='/profile/student/${student.id}' />">Профиль</a>
-	</div>
-</c:if>
-
+<div class="profile">
+	<a href="<c:url value='/profile/student/${student.id}' />">Профиль</a>
+</div>
 
 <div class="studentAdd">
-	<c:choose>
-		<c:when test="${edit eq true}">
+
 			<h2>Форма редактирования студента</h2>
-		</c:when>
-		<c:otherwise>
-			<h2>Форма добавления студента</h2>
-		</c:otherwise>
-	</c:choose>
-		<form:form method="POST" modelAttribute="student">
+
+		<form:form method="POST" modelAttribute="student" action="studentUpdate">
 			<form:input type="hidden" path="id" id="id"/>
 			<table>
 				<tr>
@@ -65,22 +57,11 @@
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
-						<c:choose>
-							<c:when test="${edit eq true}">
-								<input type="submit" value="Обновить"/>
-							</c:when>
-							<c:otherwise>
-								<input type="submit" value="Добавить"/>
-							</c:otherwise>
-						</c:choose>
+						<input type="submit" value="Обновить"/>
 					</td>
 				</tr>
 			</table>
 		</form:form>
 </div>
-
-
-
-
 </body>
 </html>

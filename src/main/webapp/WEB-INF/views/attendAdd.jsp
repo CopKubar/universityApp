@@ -23,7 +23,7 @@
 </style>
 
     <div class="profile">
-        <a href="<c:url value='/profile/student/${student.id}' />">Профиль</a>
+        <a href="<c:url value='/student/profile/${student.id}' />">Профиль</a>
     </div>
 
     <div class="attendAdd">

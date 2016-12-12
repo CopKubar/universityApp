@@ -52,7 +52,7 @@ public class RatingController {
         Attend attend = attendService.findById(Long.parseLong(attendId));
         rating.setAttend(attend);
         ratingService.save(rating);
-        return new ModelAndView(new RedirectView("/university/profile/student/"+rating.getAttend().getStudent().getId()));
+        return new ModelAndView(new RedirectView("/university/student/profile/"+rating.getAttend().getStudent().getId()));
     }
 
     @InitBinder
